@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    @Value("${payment-gateway}")
+    @Value("${payment-gateway:stripe}")
     private String paymentGateway;
     @Bean
     public PaymentService paypal(){
