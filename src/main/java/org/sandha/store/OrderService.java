@@ -1,6 +1,7 @@
 package org.sandha.store;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -8,7 +9,7 @@ public class OrderService {
     private PaymentService paymentService;
 
     @Autowired
-    public OrderService(PaymentService paymentService) {
+    public OrderService(@Qualifier("stripe") PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 
