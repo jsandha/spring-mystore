@@ -12,7 +12,11 @@ public class StoreApplication {
         var orderService =  context.getBean(OrderService.class);
 //        var notificationManager = context.getBean(NotificationManager.class);
 //        notificationManager.sendNotification("Order Placed");
-        orderService.placeOrder();
+//        orderService.placeOrder();
+        var userService = context.getBean(UserService.class);
+        userService.registerUser(new User(1l, "jsandha@gmail.com", "12345", "sandha"));
+        userService.registerUser(new User(1l, "jsandha@gmail.com", "12345", "sandha"));
+
    }
 
 

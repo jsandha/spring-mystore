@@ -9,7 +9,7 @@ public class NotificationManager {
     private final NotificationService notificationService;
 
     @Autowired
-    public NotificationManager(@Qualifier("sms") NotificationService notificationService) {
+    public NotificationManager(NotificationService notificationService) {
         this.notificationService = notificationService;
     }
 
