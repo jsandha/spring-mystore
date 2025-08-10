@@ -1,6 +1,7 @@
 package org.sandha.store;
 
 import org.sandha.store.entities.Address;
+import org.sandha.store.entities.Profile;
 import org.sandha.store.entities.Tag;
 import org.sandha.store.entities.User;
 import org.springframework.boot.SpringApplication;
@@ -30,6 +31,11 @@ public class StoreApplication {
         user.addAddress(address);
 
         user.addTag("tag1");
+        var profile = Profile.builder()
+                .bio("bio")
+                .build();
+        user.setProfile(profile);
+        profile.setUser(user);
 //        System.out.println(user.getTags());
         System.out.println(user);
    }
