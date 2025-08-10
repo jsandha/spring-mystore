@@ -1,6 +1,4 @@
-package org.sandha.store;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
+package org.sandha.store.movedCode;
 
 public class PayPalPaymentService implements PaymentService{
     @Override

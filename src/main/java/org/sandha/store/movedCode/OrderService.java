@@ -1,8 +1,4 @@
-package org.sandha.store;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+package org.sandha.store.movedCode;
 
 
 public class OrderService {

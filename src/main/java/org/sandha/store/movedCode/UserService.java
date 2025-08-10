@@ -1,4 +1,4 @@
-package org.sandha.store;
+package org.sandha.store.movedCode;
 
 import org.springframework.stereotype.Service;
 

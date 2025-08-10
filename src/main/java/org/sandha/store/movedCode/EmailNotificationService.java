@@ -1,4 +1,4 @@
-package org.sandha.store;
+package org.sandha.store.movedCode;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
