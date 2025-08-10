@@ -1,14 +1,16 @@
 package org.sandha.store.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
 @AllArgsConstructor
+@Builder
+@ToString
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
@@ -26,5 +28,19 @@ public class User {
 
     @Column(nullable = false, name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    @Builder.Default
+    private List<Address> addresses = new ArrayList<>();
+
+    public  void addAddress(Address address) {
+        addresses.add(address);
+        address.setUser(this);
+    }
+
+    public void removeAddress(Address address) {
+        addresses.remove(address);
+        address.setUser(null);
+    }
 
 }

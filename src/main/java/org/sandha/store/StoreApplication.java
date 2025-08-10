@@ -1,5 +1,6 @@
 package org.sandha.store;
 
+import org.sandha.store.entities.Address;
 import org.sandha.store.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,8 +11,24 @@ public class StoreApplication {
 
     public static void main(String[] args) {
 //       ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
+//        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
+        var user = User.builder()
+                .id(1L)
+                .name("jsandha")
+                .email("jsandha@gmail.com")
+                .password("satnam")
+                .build();
 
+        var address = Address.builder()
+                .street("123 Main St")
+                .city("city")
+                .state("state")
+                .zip("12345")
+                .build();
+
+        user.addAddress(address);
+
+        System.out.println(user);
    }
 
 
