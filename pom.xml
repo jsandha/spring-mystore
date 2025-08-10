@@ -75,6 +75,7 @@
                     <url>jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true</url>
                     <user>root</user>
                     <password>satnam</password>
+                    <cleanDisabled>false</cleanDisabled>
                 </configuration>
             </plugin>
         </plugins>
