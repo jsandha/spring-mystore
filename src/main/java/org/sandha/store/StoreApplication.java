@@ -9,13 +9,13 @@ public class StoreApplication {
 
     public static void main(String[] args) {
        ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        var orderService =  context.getBean(OrderService.class);
+//        var orderService =  context.getBean(OrderService.class);
 //        var notificationManager = context.getBean(NotificationManager.class);
 //        notificationManager.sendNotification("Order Placed");
 //        orderService.placeOrder();
-        var userService = context.getBean(UserService.class);
-        userService.registerUser(new User(1l, "jsandha@gmail.com", "12345", "sandha"));
-        userService.registerUser(new User(1l, "jsandha@gmail.com", "12345", "sandha"));
+//        var userService = context.getBean(UserService.class);
+//        userService.registerUser(new User(1l, "jsandha@gmail.com", "12345", "sandha"));
+//        userService.registerUser(new User(1l, "jsandha@gmail.com", "12345", "sandha"));
 
    }
 
