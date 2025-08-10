@@ -1,6 +1,7 @@
 package org.sandha.store;
 
 import org.sandha.store.entities.Address;
+import org.sandha.store.entities.Tag;
 import org.sandha.store.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,6 +29,8 @@ public class StoreApplication {
 
         user.addAddress(address);
 
+        user.addTag("tag1");
+//        System.out.println(user.getTags());
         System.out.println(user);
    }
 
