@@ -8,23 +8,15 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@AllArgsConstructor
 @Entity
-@Table(name = "users")
-@NoArgsConstructor
-public class User {
+@Table(name = "tags")
+public class Tag {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(nullable = false, name = "name")
+    @Column(name = "name")
     private String name;
-
-    @Column(nullable = false, name = "email")
-    private String email;
-
-    @Column(nullable = false, name = "password")
-    private String password;
 
 }
