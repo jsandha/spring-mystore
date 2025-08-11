@@ -2,6 +2,8 @@ package org.sandha.store;
 
 import org.sandha.store.entities.User;
 import org.sandha.store.repositories.UserRepository;
+import org.sandha.store.services.UserService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -11,13 +13,9 @@ public class StoreApplication {
 
     public static void main(String[] args) {
        ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-       var repository = context.getBean(UserRepository.class);
-        var user = User.builder()
-               .email("abc@gmail.com")
-               .password("1234")
-               .name("abc")
-               .build();
+        var service =  context.getBean(UserService.class);
 
+        service.showEntityStates();
 //        repository.save(user);
 //        repository.deleteById(1L);
 //       repository.deleteAll();

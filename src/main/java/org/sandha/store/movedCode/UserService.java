@@ -2,7 +2,7 @@ package org.sandha.store.movedCode;
 
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("older")
 public class UserService {
     private final UserRepository userRepository;
     private final NotificationService notificationService;
