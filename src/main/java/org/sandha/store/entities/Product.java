@@ -22,10 +22,10 @@ public class Product {
     @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "description", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "category_id")
     private Category category;
 
