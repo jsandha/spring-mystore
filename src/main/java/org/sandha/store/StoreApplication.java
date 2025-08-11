@@ -1,9 +1,7 @@
 package org.sandha.store;
 
-import org.sandha.store.entities.Address;
-import org.sandha.store.entities.Profile;
-import org.sandha.store.entities.Tag;
 import org.sandha.store.entities.User;
+import org.sandha.store.repositories.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -12,32 +10,43 @@ import org.springframework.context.ApplicationContext;
 public class StoreApplication {
 
     public static void main(String[] args) {
-//       ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-//        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
+       ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+       var repository = context.getBean(UserRepository.class);
         var user = User.builder()
-                .id(1L)
-                .name("jsandha")
-                .email("jsandha@gmail.com")
-                .password("satnam")
-                .build();
+               .email("abc@gmail.com")
+               .password("1234")
+               .name("abc")
+               .build();
 
-        var address = Address.builder()
-                .street("123 Main St")
-                .city("city")
-                .state("state")
-                .zip("12345")
-                .build();
+//        repository.save(user);
+//        repository.deleteById(1L);
+//       repository.deleteAll();
 
-        user.addAddress(address);
-
-        user.addTag("tag1");
-        var profile = Profile.builder()
-                .bio("bio")
-                .build();
-        user.setProfile(profile);
-        profile.setUser(user);
+       //        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
+//        var user = User.builder()
+//                .id(1L)
+//                .name("jsandha")
+//                .email("jsandha@gmail.com")
+//                .password("satnam")
+//                .build();
+//
+//        var address = Address.builder()
+//                .street("123 Main St")
+//                .city("city")
+//                .state("state")
+//                .zip("12345")
+//                .build();
+//
+//        user.addAddress(address);
+//
+//        user.addTag("tag1");
+//        var profile = Profile.builder()
+//                .bio("bio")
+//                .build();
+//        user.setProfile(profile);
+//        profile.setUser(user);
 //        System.out.println(user.getTags());
-        System.out.println(user);
+//        System.out.println(user);
    }
 
 
