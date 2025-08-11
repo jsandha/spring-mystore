@@ -1,30 +1,27 @@
 package org.sandha.store.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Setter
 @Getter
+@Setter
 @Entity
-@ToString
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "categories")
 public class Category {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Byte id;
 
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    @ToString.Exclude
+    @OneToMany
+    @JoinColumn(name = "category_id")
     private Set<Product> products = new HashSet<>();
+
 }

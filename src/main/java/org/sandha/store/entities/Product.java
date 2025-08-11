@@ -1,17 +1,14 @@
 package org.sandha.store.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Setter
 @Getter
+@Setter
 @Entity
-@ToString
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "products")
 public class Product {
     @Id
@@ -25,8 +22,8 @@ public class Product {
     @Column(name = "price")
     private BigDecimal price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @ToString.Exclude
     private Category category;
+
 }
