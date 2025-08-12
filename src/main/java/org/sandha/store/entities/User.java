@@ -56,15 +56,15 @@ public class User {
         tag.getUsers().remove(this);
     }
 
+    @OneToOne(mappedBy = "user")
+    private Profile profile;
+
     @ManyToMany
     @JoinTable(name = "user_tags",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     @Builder.Default
     private Set<Tag> tags = new HashSet<>();
-
-    @OneToOne(mappedBy = "user")
-    private Profile profile;
 
     @ManyToMany
     @JoinTable(name = "wishlist",

@@ -15,8 +15,12 @@ public class StoreApplication {
        ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
         var service =  context.getBean(UserService.class);
 
-        service.showEntityStates();
+//        service.showEntityStates();
 //        repository.save(user);
+//        service.showRelationshipEntities();
+//        service.showRelationship();
+//        service.showEntityStates();
+        service.fetchAddress();
 //        repository.deleteById(1L);
 //       repository.deleteAll();
 
