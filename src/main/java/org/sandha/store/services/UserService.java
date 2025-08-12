@@ -79,4 +79,8 @@ public class UserService {
 
         userRepository.save(user);
     }
+
+    public void deletedRelatedParent(){
+        userRepository.deleteById(5L);
+    }
 }

@@ -22,8 +22,9 @@ public class StoreApplication {
 //        service.showEntityStates();
 //        service.fetchAddress();
 //        repository.deleteById(1L);
-        service.persistRelated();
+//        service.persistRelated();
 //       repository.deleteAll();
+        service.deletedRelated();
 
        //        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
 //        var user = User.builder()
