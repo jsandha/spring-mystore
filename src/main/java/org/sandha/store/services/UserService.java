@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import jdk.swing.interop.SwingInterOpUtils;
 import lombok.AllArgsConstructor;
+import org.sandha.store.entities.Address;
 import org.sandha.store.entities.User;
 import org.sandha.store.repositories.AddressRepository;
 import org.sandha.store.repositories.ProfileRepository;
@@ -59,5 +60,23 @@ public class UserService {
             System.out.println("Address: " + address);
             System.out.println("User: " + address.getUser());
         });
+    }
+
+    public void persistRelated(){
+        var user = User.builder()
+                .email("abc@gmail.com")
+                .password("123")
+                .name("abc")
+                .build();
+        var address = Address.builder()
+                .street("123 Main St")
+                .city("city")
+                .zip("12345")
+                .state("state")
+                .build();
+
+        user.addAddress(address);
+
+        userRepository.save(user);
     }
 }
