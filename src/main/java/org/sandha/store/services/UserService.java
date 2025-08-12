@@ -83,4 +83,12 @@ public class UserService {
     public void deletedRelatedParent(){
         userRepository.deleteById(5L);
     }
+
+        @Transactional
+    public void deleteRelatetedChild(){
+       var user = userRepository.findById(10L).orElseThrow();
+       var address = user.getAddresses().getFirst();
+       user.removeAddress(address);
+       userRepository.save(user);
+    }
 }

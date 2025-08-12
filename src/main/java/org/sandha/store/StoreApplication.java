@@ -24,7 +24,7 @@ public class StoreApplication {
 //        repository.deleteById(1L);
 //        service.persistRelated();
 //       repository.deleteAll();
-        service.deletedRelated();
+        service.deleteRelatetedChild();
 
        //        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
 //        var user = User.builder()
