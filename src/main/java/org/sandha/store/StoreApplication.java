@@ -1,5 +1,6 @@
 package org.sandha.store;
 
+import org.sandha.store.entities.Product;
 import org.sandha.store.entities.User;
 import org.sandha.store.repositories.UserRepository;
 import org.sandha.store.services.UserService;
@@ -24,8 +25,11 @@ public class StoreApplication {
 //        repository.deleteById(1L);
 //        service.persistRelated();
 //       repository.deleteAll();
-        service.deleteRelatetedChild();
-
+//        service.deleteRelatetedChild();
+        service.createProduct();
+        service.createProductFromExistingCategory();
+        service.addProductsToUserWishList();
+        service.deleteProduct();
        //        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
 //        var user = User.builder()
 //                .id(1L)
