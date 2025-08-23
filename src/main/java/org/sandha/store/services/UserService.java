@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.sandha.store.entities.*;
 import org.sandha.store.repositories.*;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -217,4 +219,17 @@ public class UserService {
         users.forEach(p -> System.out.println(p.getId() + " : " + p.getEmail()));
     }
 
+    @Transactional
+    public void fetchProductsByExample(){
+        var product = new Product();
+        product.setName("name");
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withIncludeNullValues()
+                .withIgnorePaths("id", "price", "description", "category")
+//                .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.startsWith().ignoreCase());
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+        var example = Example.of(product, matcher);
+        var products = productRepository.findAll(example);
+        products.forEach(System.out::println);
+    }
 }
