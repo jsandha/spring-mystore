@@ -26,10 +26,12 @@ public class StoreApplication {
 //        service.persistRelated();
 //       repository.deleteAll();
 //        service.deleteRelatetedChild();
-        service.createProduct();
-        service.createProductFromExistingCategory();
-        service.addProductsToUserWishList();
-        service.deleteProduct();
+
+//        service.createProduct();
+//        service.createProductFromExistingCategory();
+//        service.addProductsToUserWishList();
+//        service.deleteProduct();
+        service.fetchProducts();
        //        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
 //        var user = User.builder()
 //                .id(1L)

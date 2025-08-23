@@ -158,7 +158,10 @@ public class UserService {
         // Now safe to delete the product
         productRepository.delete(product);
     }
-
+        public void fetchProducts(){
+       var product = productRepository.findByCategory(new Category((byte) 1));
+            System.out.println(product);
+    }
 
 
 }
