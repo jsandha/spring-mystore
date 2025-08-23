@@ -12,6 +12,7 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @Builder
+@ToString
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
@@ -74,4 +75,5 @@ public class User {
     public void addFavouriteProduct(Product product) {
         wishList.add(product);
     }
+
 }

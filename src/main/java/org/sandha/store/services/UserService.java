@@ -7,10 +7,10 @@ import org.sandha.store.entities.*;
 import org.sandha.store.repositories.*;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.reactive.TransactionalOperator;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
 
 @AllArgsConstructor
 @Service("service")
@@ -187,6 +187,17 @@ public class UserService {
         public void fetchProducts(){
        var product = productRepository.findByCategory(new Category((byte) 1));
             System.out.println(product);
+    }
+
+    @Transactional
+    public void fetchUsers(){
+        var users = userRepository.findAll();
+        System.out.println(users);
+    }
+
+    public void fetchUsersByEmail(){
+        var user = userRepository.findByEmail("abc@gmail.com").orElseThrow();
+        System.out.println(user);
     }
 
 }
