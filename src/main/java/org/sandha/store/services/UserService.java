@@ -3,10 +3,7 @@ package org.sandha.store.services;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.sandha.store.entities.Address;
-import org.sandha.store.entities.Category;
-import org.sandha.store.entities.Product;
-import org.sandha.store.entities.User;
+import org.sandha.store.entities.*;
 import org.sandha.store.repositories.*;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -65,6 +62,35 @@ public class UserService {
             System.out.println("Address: " + address);
             System.out.println("User: " + address.getUser());
         });
+    }
+
+    @Transactional
+    public void saveUser(){
+        var user = User.builder()
+            .name("jsandha")
+            .email("jsandha@gmail.com")
+            .password("123")
+            .build();
+
+        var address = Address.builder()
+                .street("123 Main St")
+                .city("city")
+                .state("state")
+                .zip("12345")
+                .build();
+
+        user.addAddress(address);
+
+        user.addTag("tag1");
+
+        var profile = Profile.builder()
+                .bio("bio")
+                .build();
+
+        user.setProfile(profile);
+
+        profile.setUser(user);
+        userRepository.save(user);
     }
 
     public void persistRelated(){
@@ -162,6 +188,5 @@ public class UserService {
        var product = productRepository.findByCategory(new Category((byte) 1));
             System.out.println(product);
     }
-
 
 }
