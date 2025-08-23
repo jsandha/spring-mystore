@@ -2,6 +2,7 @@ package org.sandha.store.repositories;
 
 import org.sandha.store.entities.User;
 import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -13,4 +14,9 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     @EntityGraph(attributePaths = {"tags" , "wishList" })
     Optional<User> findByEmail(String email);
+
+
+    @EntityGraph(attributePaths = "addresses")
+    @Query("select u from User u")
+    List<User> findAllWithAddresses();
 }

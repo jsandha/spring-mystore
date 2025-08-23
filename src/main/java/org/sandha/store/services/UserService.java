@@ -82,14 +82,6 @@ public class UserService {
         user.addAddress(address);
 
         user.addTag("tag1");
-
-        var profile = Profile.builder()
-                .bio("bio")
-                .build();
-
-        user.setProfile(profile);
-
-        profile.setUser(user);
         userRepository.save(user);
     }
 
@@ -201,4 +193,9 @@ public class UserService {
         System.out.println(user);
     }
 
+    @Transactional
+    public void findAllWithAddresses(){
+        var users = userRepository.findAllWithAddresses();
+        users.forEach(System.out::println);
+    }
 }

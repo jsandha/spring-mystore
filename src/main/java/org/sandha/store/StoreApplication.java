@@ -37,7 +37,8 @@ public class StoreApplication {
 //        service.addTagsToUser(user);
 //        service.saveUser();
 //        service.fetchUsers();
-        service.fetchUsersByEmail();
+//        service.fetchUsersByEmail();
+        service.findAllWithAddresses();
    }
 
 

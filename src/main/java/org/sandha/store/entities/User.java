@@ -55,9 +55,6 @@ public class User {
         tag.getUsers().remove(this);
     }
 
-    @OneToOne(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private Profile profile;
-
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "user_tags",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -79,12 +76,9 @@ public class User {
     public String toString() {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
-                "profile = " + profile + ", " +
-                "addresses = " + addresses + ", " +
+                "name = " + name + ", " +
                 "password = " + password + ", " +
-                "tags = " + tags + ", " +
-                "email = " + email + ", " +
-                "wishList = " + wishList + ", " +
-                "name = " + name + ")";
+                "addresses = " + addresses + ", " +
+                "email = " + email + ")";
     }
 }
