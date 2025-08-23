@@ -72,6 +72,9 @@ public class User {
         wishList.add(product);
     }
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private Profile profile;
+
     @Override
     public String toString() {
         return getClass().getSimpleName() + "(" +

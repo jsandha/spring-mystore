@@ -7,7 +7,6 @@ import org.sandha.store.entities.*;
 import org.sandha.store.repositories.*;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.reactive.TransactionalOperator;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -67,22 +66,29 @@ public class UserService {
     @Transactional
     public void saveUser(){
         var user = User.builder()
-            .name("jsandha")
-            .email("jsandha@gmail.com")
+            .name("jas3")
+            .email("jas3@gmail.com")
             .password("123")
             .build();
 
         var address = Address.builder()
-                .street("123 Main St")
-                .city("city")
-                .state("state")
-                .zip("12345")
+                .street("3")
+                .city("city3")
+                .state("state3")
+                .zip("11111")
                 .build();
 
         user.addAddress(address);
 
-        user.addTag("tag1");
-        userRepository.save(user);
+        user.addTag("tag3");
+
+        var profile = Profile.builder()
+                .user(user)
+                .loyaltyPoints(15)
+                .bio("bio3")
+                .build();
+        profileRepository.save(profile);
+//        userRepository.save(user);
     }
 
     public void persistRelated(){
@@ -203,5 +209,12 @@ public class UserService {
     public void findProductsByPrice(BigDecimal min, BigDecimal max){
         var products = productRepository.findProductsByPrice(min, max);
         products.forEach(System.out::println);
+
     }
+
+    public void findProfileGreaterThan(int point){
+        var users = userRepository.findLoyalUsers(point);
+        users.forEach(p -> System.out.println(p.getId() + " : " + p.getEmail()));
+    }
+
 }

@@ -37,12 +37,14 @@ public class StoreApplication {
 //        service.fetchProducts();
 //        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
 //        service.addTagsToUser(user);
-        service.saveUser();
+//        service.saveUser();
 //        service.fetchUsers();
 //        service.fetchUsersByEmail();
 //        service.findAllWithAddresses();
-        service.findProductsByPrice(BigDecimal.valueOf(1), BigDecimal.valueOf(50));
+//        service.findProductsByPrice(BigDecimal.valueOf(1), BigDecimal.valueOf(50));
+        service.findProfileGreaterThan(2);
    }
+
 
 
 }

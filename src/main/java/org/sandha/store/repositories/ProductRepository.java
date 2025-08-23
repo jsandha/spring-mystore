@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query("select p.id, p.name from Product p where p.category = :category")
