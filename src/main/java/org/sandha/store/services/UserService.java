@@ -198,4 +198,10 @@ public class UserService {
         var users = userRepository.findAllWithAddresses();
         users.forEach(System.out::println);
     }
+
+    @Transactional
+    public void findProductsByPrice(BigDecimal min, BigDecimal max){
+        var products = productRepository.findProductsByPrice(min, max);
+        products.forEach(System.out::println);
+    }
 }

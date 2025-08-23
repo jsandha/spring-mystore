@@ -11,6 +11,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.math.BigDecimal;
+
 @SpringBootApplication
 public class StoreApplication {
 
@@ -35,10 +37,11 @@ public class StoreApplication {
 //        service.fetchProducts();
 //        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
 //        service.addTagsToUser(user);
-//        service.saveUser();
+        service.saveUser();
 //        service.fetchUsers();
 //        service.fetchUsersByEmail();
-        service.findAllWithAddresses();
+//        service.findAllWithAddresses();
+        service.findProductsByPrice(BigDecimal.valueOf(1), BigDecimal.valueOf(50));
    }
 
 
