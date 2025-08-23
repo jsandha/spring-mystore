@@ -195,8 +195,9 @@ public class UserService {
         System.out.println(users);
     }
 
+    @Transactional
     public void fetchUsersByEmail(){
-        var user = userRepository.findByEmail("abc@gmail.com").orElseThrow();
+        var user = userRepository.findByEmail("jsandha@gmail.com").orElseThrow();
         System.out.println(user);
     }
 

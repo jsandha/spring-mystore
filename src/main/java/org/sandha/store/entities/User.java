@@ -30,7 +30,7 @@ public class User {
     @Column(nullable = false, name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true, fetch = FetchType.EAGER)
     @Builder.Default
     private List<Address> addresses = new ArrayList<>();
 
@@ -79,7 +79,12 @@ public class User {
     public String toString() {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
-                "name = " + name + ", " +
-                "email = " + email + ")";
+                "profile = " + profile + ", " +
+                "addresses = " + addresses + ", " +
+                "password = " + password + ", " +
+                "tags = " + tags + ", " +
+                "email = " + email + ", " +
+                "wishList = " + wishList + ", " +
+                "name = " + name + ")";
     }
 }

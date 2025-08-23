@@ -11,6 +11,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     List<User> findAllByWishList_Id(Long productId);
 
-    @EntityGraph(attributePaths = "tags")
+    @EntityGraph(attributePaths = {"tags" , "wishList" })
     Optional<User> findByEmail(String email);
 }

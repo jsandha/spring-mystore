@@ -36,8 +36,8 @@ public class StoreApplication {
 //        var user = new User(1L, "jsandha", "jsandha@gmail.com", "password");
 //        service.addTagsToUser(user);
 //        service.saveUser();
-        service.fetchUsers();
-//        service.fetchUsersByEmail();
+//        service.fetchUsers();
+        service.fetchUsersByEmail();
    }
 
 
