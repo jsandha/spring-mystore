@@ -42,10 +42,8 @@ public class StoreApplication {
 //        service.fetchUsersByEmail();
 //        service.findAllWithAddresses();
 //        service.findProductsByPrice(BigDecimal.valueOf(1), BigDecimal.valueOf(50));
-//        service.findProfileGreaterThan(2)
-        service.fetchProductsByExample();
+//        service.findProfileGreaterThan(2);
+//        service.fetchProductsByExample();
+        service.fetchProductsByCriteria();
    }
-
-
-
 }
