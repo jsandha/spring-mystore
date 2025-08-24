@@ -44,6 +44,7 @@ public class StoreApplication {
 //        service.findProductsByPrice(BigDecimal.valueOf(1), BigDecimal.valueOf(50));
 //        service.findProfileGreaterThan(2);
 //        service.fetchProductsByExample();
-        service.fetchProductsByCriteria();
+//        service.fetchProductsByCriteria();
+        service.fetchProductsBySpecification("name", BigDecimal.valueOf(1), BigDecimal.valueOf(10));
    }
 }

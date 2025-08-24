@@ -8,6 +8,7 @@ import org.sandha.store.repositories.*;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -237,4 +238,21 @@ public class UserService {
        var products = productRepository.findProductsByCriteria(null, BigDecimal.valueOf(1), BigDecimal.valueOf(10));
        products.forEach(System.out::println);
     }
+    public void fetchProductsBySpecification(String name, BigDecimal min, BigDecimal max){
+        Specification<Product> spec = Specification.where(null);
+
+        if(name != null){
+            spec = spec.and((root, query, cb) -> cb.like(root.get("name"), "%" + name + "%"));
+        }
+        if(min != null){
+            spec = spec.and((root, query, cb) -> cb.greaterThanOrEqualTo(root.get("price"), min));
+        }
+        if(max != null){
+            spec = spec.and((root, query, cb) -> cb.lessThanOrEqualTo(root.get("price"), max));
+        }
+
+        var products = productRepository.findAll(spec);
+        products.forEach(System.out::println);
+    }
+
 }
