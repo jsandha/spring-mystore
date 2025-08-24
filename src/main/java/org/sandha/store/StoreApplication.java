@@ -45,6 +45,8 @@ public class StoreApplication {
 //        service.findProfileGreaterThan(2);
 //        service.fetchProductsByExample();
 //        service.fetchProductsByCriteria();
-        service.fetchProductsBySpecification("name", BigDecimal.valueOf(1), BigDecimal.valueOf(10));
+//        service.fetchProductsBySpecification("name", BigDecimal.valueOf(1), BigDecimal.valueOf(10));
+//        service.fetchSortedProducts();
+        service.fetchPaginatedProducts(0, 10);
    }
 }
